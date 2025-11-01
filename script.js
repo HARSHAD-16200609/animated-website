@@ -121,4 +121,21 @@ menu.addEventListener("mouseleave", () => {
 });
 }
 
-nav_animation();
+// nav_animation();
+
+var relemall = document.querySelectorAll(".right-elem");
+
+
+
+relemall.forEach((e)=>{
+   const img = e.querySelector("img");
+  e.addEventListener('mouseenter',()=>{
+  img.style.opacity=1;
+
+})
+  e.addEventListener('mouseleave',()=>{
+  img.style.opacity=0;
+
+})
+})
+

@@ -7,6 +7,7 @@
   box-sizing: border-box;
   padding: 0;
   color: #fff;
+
 }
 html,
 body {
@@ -17,7 +18,7 @@ body {
 nav {
   position: fixed;
   height: 12vh;
-  /* background-color: rgb(10, 10, 10); */
+  background-color:#111;
   width: 100%;
   display: flex;
   padding: 2vw 10.4vw;
@@ -153,7 +154,7 @@ button span svg {
 
   margin-top: 10vh;
   position: absolute;
-  bottom: 3%;
+  bottom: 0%;
   width: 44%;
   white-space: nowrap; /* all alements in a single line*/
   padding: 2vw;
@@ -205,4 +206,65 @@ z-index: 2;
   height: 100vh;
   width: 100%;
   background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+    padding: 0vw 10.5vw;
+    padding-bottom: 8vw;
+    border-top:  1px solid #333;
 }
+#page2-left{
+    height: 100%;
+    width:40%;
+
+    display: flex;
+    flex-direction: column;
+    padding: 3vw 0;
+    justify-content: space-between;
+    align-items: flex-start;
+   
+  
+}
+#page2-left p{
+    font-size: 0.8vw;
+    font-weight: 600;
+
+}
+#page2-left h5{
+    width:75%;
+    font-weight: 400;
+    font-size: 1.1vw;
+    font-weight: 400;
+
+}
+#page2-right{
+    height: 100%;
+    width:50%;
+ 
+}
+.right-elem{
+    
+    position: relative;
+    padding-top: 2vw;
+    padding-bottom: 5vw;
+    border-bottom: 1px solid #333;
+
+}
+.right-elem h2{
+    font-size:1.4vw ;
+    font-weight: 400;
+}
+.right-elem img{
+    height: 7vw;
+    width: 7vw;
+    object-fit: cover;
+    object-position: right;
+    border-radius:50%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease;
+   
+
+}
+
