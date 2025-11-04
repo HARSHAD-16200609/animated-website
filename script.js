@@ -90,7 +90,7 @@ function nav_animation() {
   // Hover open animation
   tl.to("#nav-bottom", {
     height: "22vh",
-    duration: 0.4,
+    duration: 0.6,
     ease: "power2.out",
   }).to(
     ".nav-part2 h5",
@@ -99,7 +99,7 @@ function nav_animation() {
       opacity: 1,
       y: -25,
       stagger: { amount: 0.4 },
-      duration: 0.4,
+      duration: 0.5,
       ease: "power2.out",
     },
     "-=0.3"
@@ -114,17 +114,15 @@ function nav_animation() {
     tl.reverse();
   });
 }
-
-nav_animation();
-
 // page2 animation
+
 
 function page2_animation() {
 
   var relemall = document.querySelectorAll(".right-elem");
 
   relemall.forEach((e) => {
-    console.log(e.ḍchildNodes);
+    console.log(e.childNodes);
 
     e.addEventListener("mouseenter", () => {
       gsap.to(e.childNodes[3], {
@@ -154,7 +152,6 @@ function page2_animation() {
   });
 }
 
-page2_animation();
 
 function video_animation(){
 
@@ -184,6 +181,96 @@ video.addEventListener('click',()=>{
 }
 
 
+function page5_animation(){
+const cont = document.querySelectorAll(".sec_right");
+
+cont.forEach((container) => {
+  const vid = container.querySelector("video");
+  const hovr = container.querySelector(".hovr");
+
+  // 🟢 When mouse enters
+  container.addEventListener("mouseenter", () => {
+    gsap.to(vid, {
+      duration: 0.5,
+      ease: "power2.out",
+      opacity: 1,
+      onStart: () => {
+        vid.play();
+        vid.style.zIndex = 8;
+        vid.style.position = "absolute";
+        vid.style.objectFit = "cover";
+      },
+    });
+
+    gsap.to(hovr, {
+      position: "absolute",
+      opacity: 1,
+      ease: "power2.out",
+      scale: 1,
+      zIndex: 9,
+    });
+  });
+
+  // 🟡 When mouse moves inside
+  container.addEventListener("mousemove", (dets) => {
+    const rect = container.getBoundingClientRect();
+    gsap.to(hovr, {
+      x: dets.clientX - rect.left - hovr.offsetWidth / 2,
+      y: dets.clientY - rect.top - hovr.offsetHeight / 2,
+      duration: 0.2,
+      ease: "power2.out",
+    });
+  });
+
+  // 🔴 When mouse leaves
+  container.addEventListener("mouseleave", () => {
+    gsap.to(vid, {
+      duration: 0.5,
+      ease: "power2.in",
+      opacity: 0,
+      onComplete: () => {
+        vid.pause();
+        vid.style.zIndex = 7;
+      },
+    });
+
+    gsap.to(hovr, {
+      position: "absolute",
+      opacity: 0,
+      ease: "power2.out",
+      scale: 0,
+      zIndex: 9,
+    });
+  });
+});
 
 
+}
+
+
+
+
+
+page5_animation();
+page2_animation();
+nav_animation();
 video_animation();
+
+
+
+const foot = document.querySelector(".foot");
+foot.addEventListener('mouseenter',()=>{
+  gsap.to(".foot h4",{
+ y:-14,
+ stagger:0.6,
+ ease:"power2.inOut"
+})
+})
+foot.addEventListener('mouseleave',()=>{
+  gsap.to(".foot h4",{
+ y:0,
+ duration:0.5,
+ stagger:0.6,
+ ease:"power2.inOut"
+})
+})
